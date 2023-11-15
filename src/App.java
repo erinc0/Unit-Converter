@@ -18,6 +18,10 @@ public class App extends Application {
   private TextField meowfield;
   private TextField miauField;
   private Button meowButton;
+  private TextField woofField;
+  private Label woofLabel;
+  public String z;
+  public String l;
   @Override
     public void start (Stage primaryStage){
 
@@ -25,8 +29,8 @@ public class App extends Application {
       GridPane gridmeow= null;
       gridmeow = new GridPane();
       meowscene = new Scene(gridmeow);
-      meowLabel= new Label("km:");
-      miauLabel = new Label("= yards");
+      meowLabel= new Label("value:");
+      miauLabel = new Label("converted value");
       meowfield = new TextField();
       meowfield.setEditable(true);
       meowfield.setText("enter a value!");
@@ -34,14 +38,21 @@ public class App extends Application {
       miauField.setEditable(true);
       miauField.setText("0");
 
+      woofLabel = new Label("units");
+      woofField = new TextField();
+      woofField.setEditable(true);
+      woofField.setText("enter units");
+
       meowButton = new Button("convert");
       gridmeow.setPadding(new Insets (50, 50, 50, 50));
       gridmeow.setHgap(5);
-      gridmeow.add(meowLabel, 0 , 0);
-      gridmeow.add(meowfield, 3 , 0);
+      gridmeow.add(meowLabel, 0 , 1);
+      gridmeow.add(meowfield, 3 , 1);
       gridmeow.add(miauField, 3, 2);
       gridmeow.add(miauLabel, 0, 2);
       gridmeow.add(meowButton, 0 , 5);
+      gridmeow.add(woofField, 3, 0);
+      gridmeow.add(woofLabel, 0, 0);
 
       meowButton.setOnAction(new EventHandler<ActionEvent>() {
         
@@ -49,10 +60,41 @@ public class App extends Application {
         public void handle(ActionEvent meowEvent){
            int x;
            int y;
+           String z;
+           String l;
+           y=0;
           miau = meowfield.getText();
+          z = woofField.getText();
           x = Integer.parseInt(miau);
+          
+        switch(z){
+          case "kWh = J":
+          y = 3600000*x;
+          //System.out.println(x + " J");
+          break; 
+
+          case "km = yards":
           y = (int) (1093.61 * x);
-          miauField.setText(Integer.toString(y));
+         // System.out.println (x + " yards");
+          break;
+
+          case "bar = Pascal":
+          y= 100000 * x;
+          //System.out.println(x + " Pascal");
+          break;
+
+          case "degrees = Radians":
+          y= (int) (.0174533 * x);
+          //System.out.println(x + "Radians");
+          break;
+
+          default:
+          l = "error";
+          woofField.setText(l);
+          break;
+
+        } 
+        miauField.setText(Integer.toString(y));
         }
       }
       );
