@@ -70,22 +70,18 @@ public class App extends Application {
         switch(z){
           case "kWh = J":
           y = 3600000*x;
-          //System.out.println(x + " J");
           break; 
 
           case "km = yards":
           y = (int) (1093.61 * x);
-         // System.out.println (x + " yards");
           break;
 
           case "bar = Pascal":
           y= 100000 * x;
-          //System.out.println(x + " Pascal");
           break;
 
           case "degrees = Radians":
           y= (int) (.0174533 * x);
-          //System.out.println(x + "Radians");
           break;
 
           default:
