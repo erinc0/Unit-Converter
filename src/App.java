@@ -29,19 +29,19 @@ public class App extends Application {
       miauLabel = new Label("= yards");
       meowfield = new TextField();
       meowfield.setEditable(true);
-      meowfield.setText("0");
+      meowfield.setText("enter a value!");
       miauField = new TextField();
       miauField.setEditable(true);
       miauField.setText("0");
 
       meowButton = new Button("convert");
-      gridmeow.setPadding(new Insets (5, 5, 5, 5));
+      gridmeow.setPadding(new Insets (50, 50, 50, 50));
       gridmeow.setHgap(5);
       gridmeow.add(meowLabel, 0 , 0);
-      gridmeow.add(meowfield, 1 , 0);
-      gridmeow.add(miauField, 1, 1);
-      gridmeow.add(miauLabel, 0, 1);
-      gridmeow.add(meowButton, 0 ,4);
+      gridmeow.add(meowfield, 3 , 0);
+      gridmeow.add(miauField, 3, 2);
+      gridmeow.add(miauLabel, 0, 2);
+      gridmeow.add(meowButton, 0 , 5);
 
       meowButton.setOnAction(new EventHandler<ActionEvent>() {
         
