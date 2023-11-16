@@ -63,10 +63,13 @@ public class App extends Application {
            String z;
            String l;
            y=0;
-          miau = meowfield.getText();
+       
+try{
+
+   miau = meowfield.getText();
           z = woofField.getText();
           x = Integer.parseInt(miau);
-          
+
         switch(z){
           case "kWh = J":
           y = 3600000*x;
@@ -85,19 +88,24 @@ public class App extends Application {
           break;
 
           default:
-          l = "error";
+          l = "enter a proper conversion";
           woofField.setText(l);
           break;
 
         } 
         miauField.setText(Integer.toString(y));
-        }
+        
+          } 
+    catch(NumberFormatException e){
+        l= "enter a numeric value";
+        meowfield.setText(l);
       }
-      );
+    }
+      });
       primaryStage.setScene(meowscene);
       primaryStage.setTitle("Conversion Calculator");
-      primaryStage.show();
-    }
+      primaryStage.show();}
+    
     
     public static void main(String[] args) throws Exception {
      launch(args);
